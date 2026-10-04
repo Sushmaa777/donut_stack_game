@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donut Stack 🍩</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game">
+
+        <div class="top-bar">
+            <div>
+                <span class="label">SCORE</span>
+                <span id="score">0</span>
+            </div>
+
+            <div class="title">DONUT STACK 🍩</div>
+
+            <div>
+                <span class="label">BEST</span>
+                <span id="best">0</span>
+            </div>
+        </div>
+
+        <div id="gameArea">
+
+            <div class="message" id="message">
+                <h1>DONUT STACK</h1>
+                <p>Stack as many donuts as you can!</p>
+                <button id="startButton">START GAME</button>
+            </div>
+
+            <div id="stack"></div>
+
+            <img
+                id="movingDonut"
+                src="donut_game_cropped.png"
+                alt="Moving donut"
+            >
+
+            <div class="instructions">
+                TAP / CLICK TO DROP
+            </div>
+
+        </div>
+
+        <div class="bottom">
+            <button id="dropButton">🍩 DROP DONUT</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

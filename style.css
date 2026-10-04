@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+
+    background:
+        radial-gradient(circle at 20% 20%, #ffe5ed 0 8%, transparent 9%),
+        radial-gradient(circle at 80% 30%, #fff0c9 0 7%, transparent 8%),
+        linear-gradient(135deg, #fff1e6, #ffdce8);
+}
+
+.game {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #fff8f1;
+    overflow: hidden;
+}
+
+/* TOP BAR */
+
+.top-bar {
+    height: 75px;
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+
+    background: #fff4ea;
+    border-bottom: 2px solid #f4d6c8;
+
+    color: #663b32;
+}
+
+.top-bar > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+#score,
+#best {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* GAME AREA */
+
+#gameArea {
+    position: relative;
+    flex: 1;
+
+    min-height: 0;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 15% 18%, #ffffff 0 5%, transparent 6%),
+        radial-gradient(circle at 85% 25%, #ffffff 0 4%, transparent 5%),
+        radial-gradient(circle at 70% 75%, #ffe9d5 0 8%, transparent 9%),
+        linear-gradient(#fff8f2, #ffe8dc);
+}
+
+/* little decorative dots */
+
+#gameArea::before,
+#gameArea::after {
+    content: "✦";
+    position: absolute;
+    color: #efb5a5;
+    font-size: 28px;
+    opacity: 0.5;
+}
+
+#gameArea::before {
+    top: 80px;
+    left: 25px;
+}
+
+#gameArea::after {
+    top: 150px;
+    right: 25px;
+}
+
+/* DONUTS */
+
+#stack {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.2s ease-out;
+}
+
+.donut {
+    position: absolute;
+
+    width: 105px;
+    height: 86px;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter: drop-shadow(0 5px 4px rgba(100, 55, 40, 0.18));
+}
+
+#movingDonut {
+    position: absolute;
+
+    width: 105px;
+    height: 86px;
+
+    object-fit: contain;
+
+    user-select: none;
+    pointer-events: none;
+
+    filter: drop-shadow(0 5px 4px rgba(100, 55, 40, 0.18));
+
+    z-index: 10;
+}
+
+/* INSTRUCTIONS */
+
+.instructions {
+    position: absolute;
+
+    bottom: 15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    color: #8e6259;
+    opacity: 0.65;
+
+    white-space: nowrap;
+}
+
+/* BOTTOM */
+
+.bottom {
+    height: 85px;
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #fff4ea;
+    border-top: 2px solid #f4d6c8;
+}
+
+#dropButton,
+#startButton {
+    border: none;
+    cursor: pointer;
+
+    background: #e88ca5;
+    color: white;
+
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    border-radius: 30px;
+
+    box-shadow: 0 6px 15px rgba(190, 95, 120, 0.25);
+
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+#dropButton {
+    padding: 14px 30px;
+    font-size: 14px;
+}
+
+#dropButton:active,
+#startButton:active {
+    transform: scale(0.94);
+}
+
+/* START / GAME OVER */
+
+.message {
+    position: absolute;
+
+    z-index: 50;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: rgba(255, 248, 242, 0.92);
+}
+
+.message h1 {
+    color: #713f35;
+
+    font-size: 30px;
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.message p {
+    color: #8c6259;
+    margin-bottom: 25px;
+}
+
+#startButton {
+    padding: 14px 30px;
+    font-size: 14px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 600px) {
+
+    .game {
+        min-height: 720px;
+        height: 90vh;
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 20px 60px rgba(100, 55, 40, 0.15);
+
+        border: 1px solid #f2d7c9;
+    }
+}
